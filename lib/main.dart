@@ -1,5 +1,4 @@
 import 'package:app/pages/homePage.dart';
-import 'package:app/pages/LoadingPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +15,6 @@ class AtlasApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: HomePage(),
       // home: LoadingPage(),
-    );  
+    );
   }
 }
