@@ -1,26 +1,28 @@
+// استيراد المكتبات المطلوبة
 import 'package:flutter/material.dart';
-import 'homePage.dart';
+import 'homePage.dart'; // استيراد الصفحة الرئيسية HomePage
 
-
-
-
+// تعريف صفحة LoadingPage2 كـ StatefulWidget لتتمكن من استخدام الحالة (State)
 class LoadingPage2 extends StatefulWidget {
-
-  const LoadingPage2({super.key});
+  const LoadingPage2({super.key}); // مفتاح اختياري لتعريف هوية الودجت
 
   @override
-  _LoadingPage2State createState() => _LoadingPage2State();
+  _LoadingPage2State createState() =>
+      _LoadingPage2State(); // إنشاء الحالة الخاصة بالصفحة
 }
 
+// تعريف حالة الصفحة (State)
 class _LoadingPage2State extends State<LoadingPage2> {
   @override
   void initState() {
     super.initState();
-    // الانتقال إلى الصفحة التالية بعد 7 ثوانٍ
+    // مؤقت لعرض الصفحة لمدة 7 ثوانٍ قبل الانتقال إلى الصفحة الرئيسية HomePage
     Future.delayed(const Duration(seconds: 7), () {
+      // الانتقال إلى الصفحة الرئيسية مع استبدال الصفحة الحالية
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(
+            builder: (context) => const HomePage()), // الانتقال إلى HomePage
       );
     });
   }
@@ -28,40 +30,41 @@ class _LoadingPage2State extends State<LoadingPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black, // تعيين خلفية الصفحة باللون الأسود
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          // وضع العناصر في منتصف الشاشة عموديًا
           children: [
-
-            //Heading "ATLAS"
+            // عنوان التطبيق "ATLAS"
             const Text(
               'ATLAS',
               style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 15,
+                fontSize: 50, // حجم الخط
+                fontWeight: FontWeight.bold, // وزن الخط
+                color: Colors.white, // لون النص
+                letterSpacing: 15, // مسافة بين الأحرف
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30), // مسافة بين النص الأول والعنصر التالي
 
-            //Introduction-For-APP
+            // تقديم للتطبيق
             const Text(
-              'Every Map Tells a Story of the World',
+              'Every Map Tells a Story of the World', // نص الوصف
               style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                letterSpacing: 5,
+                fontSize: 50, // حجم النص
+                fontWeight: FontWeight.bold, // وزن النص
+                color: Colors.white, // لون النص
+                letterSpacing: 5, // مسافة بين الأحرف
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30), // مسافة بين النص والوصف والعنصر التالي
 
-            //earth-gif
-            Image.asset('assets/img/earthGIF.gif',
-            width: 700,
-            height: 700,
+            // صورة متحركة للأرض (GIF)
+            Image.asset(
+              'assets/img/earthGIF.gif', // مسار صورة الـ GIF
+              width: 700, // عرض الصورة
+              height: 700, // ارتفاع الصورة
             ),
           ],
         ),

@@ -1,73 +1,86 @@
+// استيراد مكتبة Flutter الأساسية
 import 'package:flutter/material.dart';
+import '../widgets/customCard.dart';
+import 'africa/africaContinent.dart';
 
-import '../widgets/buttonContinents.dart';
-
+// تعريف الصفحة الرئيسية HomePage كـ StatelessWidget لأنها لا تحتاج إلى حالة (State)
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key}); // مفتاح اختياري لتعريف هوية الودجت
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        title: const Text('Choose a Continent'),
-        backgroundColor: Colors.black,
-        elevation: 0,
-      ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 20,
+      backgroundColor: Colors.black, // تعيين خلفية الصفحة باللون الأسود
+      // محتوى الصفحة الرئيسية
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center, // توسيط العمود عموديًا
+        crossAxisAlignment: CrossAxisAlignment.center, // توسيط العمود أفقيًا
         children: [
-          ContinentItem(
-            imagePath: 'assets/img/continents/africaCountryMap.png', // صورة إفريقيا
-            label: 'Africa',
-            onTap: () {
-              print('Africa tapped');
-            },
+          // عنوان الصفحة
+          const Text(
+            'Choose a Continent', // نص العنوان
+            style: TextStyle(
+              fontSize: 50, // حجم النص
+              fontWeight: FontWeight.bold, // وزن النص (عريض)
+              color: Colors.white, // لون النص
+              letterSpacing: 10, // مسافة بين الأحرف
+            ),
           ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/antarcticaMapCountry.png', // صورة أنتاركتيكا
-            label: 'Antarctica',
-            onTap: () {
-              print('Antarctica tapped');
-            },
+          SizedBox(
+            height: 50,
           ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/asiaMapCountry.png', // صورة آسيا
-            label: 'Asia',
-            onTap: () {
-              print('Asia tapped');
-            },
-          ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/australiaMapCountry.png', // صورة أستراليا
-            label: 'Australia',
-            onTap: () {
-              print('Australia tapped');
-            },
-          ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/europeMapCountry.png', // صورة أوروبا
-            label: 'Europe',
-            onTap: () {
-              print('Europe tapped');
-            },
-          ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/northAmericaMapCountry.png', // صورة أمريكا الشمالية
-            label: 'North America',
-            onTap: () {
-              print('North America tapped');
-            },
-          ),
-          ContinentItem(
-            imagePath: 'assets/img/continents/southAmericaMapCountry.png', // صورة أمريكا الجنوبية
-            label: 'South America',
-            onTap: () {
-              print('South America tapped');
-            },
-          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center, // توسيط العمود عموديًا
+            crossAxisAlignment: CrossAxisAlignment.center,
+            // توسيط العمود أفقيًا
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // توسيط العمود عموديًا
+                crossAxisAlignment: CrossAxisAlignment.center,
+                // توسيط العمود أفقيًا
+                children: [
+                  customCard(
+                      'Africa',
+                      'assets/img/continents/africaCountryMap.png',
+                      africaContinent()),
+                  customCard('Asia', 'assets/img/continents/asiaMapCountry.png',
+                      africaContinent()),
+                  customCard(
+                      'Australia',
+                      'assets/img/continents/australiaMapCountry.png',
+                      africaContinent()),
+                  customCard(
+                      'Europe',
+                      'assets/img/continents/europeMapCountry.png',
+                      africaContinent()),
+                  customCard(
+                      'Antarctica',
+                      'assets/img/continents/antarcticaMapCountry.png',
+                      africaContinent()),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // توسيط العمود عموديًا
+                crossAxisAlignment: CrossAxisAlignment.center,
+                // توسيط العمود أفقيًا
+                children: [
+                  customCard(
+                      'North America',
+                      'assets/img/continents/northAmericaMapCountry.png',
+                      africaContinent()),
+                  customCard(
+                      'South America',
+                      'assets/img/continents/southAmericaMapCountry.png',
+                      africaContinent()),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );

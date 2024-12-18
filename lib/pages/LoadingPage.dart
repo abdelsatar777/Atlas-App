@@ -1,23 +1,29 @@
+// استيراد الحزم المطلوبة من Flutter
 import 'package:flutter/material.dart';
-import 'LoadingPage2.dart';
+import 'LoadingPage2.dart'; // استيراد الصفحة الثانية التي سيتم الانتقال إليها
 
+// تعريف صفحة LoadingPage كـ StatefulWidget لتتمكن من استخدام الحالة (State)
 class LoadingPage extends StatefulWidget {
-
-  const LoadingPage({super.key});
+  const LoadingPage({super.key}); // استخدام مفتاح اختياري لتحديد هوية الودجت
 
   @override
-  _LoadingPageState createState() => _LoadingPageState();
+  _LoadingPageState createState() =>
+      _LoadingPageState(); // إنشاء الحالة الخاصة بالصفحة
 }
 
+// تعريف حالة الصفحة (State)
 class _LoadingPageState extends State<LoadingPage> {
   @override
   void initState() {
     super.initState();
-    // الانتقال إلى الصفحة التالية بعد 3 ثوانٍ
+    // تشغيل مؤقت لمدة 3 ثوانٍ ثم الانتقال إلى الصفحة التالية
     Future.delayed(const Duration(seconds: 3), () {
+      // استخدام Navigator لدفع الصفحة الثانية مع استبدال الصفحة الحالية
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoadingPage2()),
+        MaterialPageRoute(
+            builder: (context) =>
+                const LoadingPage2()), // الانتقال إلى LoadingPage2
       );
     });
   }
@@ -25,19 +31,20 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black, // تعيين لون خلفية الصفحة بالأسود
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          // وضع المحتويات في منتصف الشاشة عموديًا
           children: [
+            // عرض شعار التطبيق (Logo)
+            Image.asset('assets/img/logo.png'), // تحديد مسار الصورة للشعار
 
-            //Logo App
-            Image.asset('assets/img/logo.png'),
-
-            // دائرة التحميل
+            // عرض مؤشر التحميل (Loading Indicator)
             const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF7AC6EA)),
-              strokeWidth: 6, // حجم الخط
+              // لون المؤشر
+              strokeWidth: 6, // سمك خط المؤشر
             ),
           ],
         ),
