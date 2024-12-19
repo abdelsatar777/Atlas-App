@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 import 'homePage.dart'; // استيراد الصفحة الرئيسية HomePage
 
-// تعريف صفحة LoadingPage2 كـ StatefulWidget لتتمكن من استخدام الحالة (State)
-class LoadingPage2 extends StatefulWidget {
-  const LoadingPage2({super.key}); // مفتاح اختياري لتعريف هوية الودجت
+// تعريف صفحة applicationDetails كـ StatefulWidget لتتمكن من استخدام الحالة (State)
+class applicationDetails extends StatefulWidget {
+  const applicationDetails({super.key}); // مفتاح اختياري لتعريف هوية الودجت
 
   @override
-  _LoadingPage2State createState() =>
-      _LoadingPage2State(); // إنشاء الحالة الخاصة بالصفحة
+  _applicationDetailsState createState() =>
+      _applicationDetailsState(); // إنشاء الحالة الخاصة بالصفحة
 }
 
 // تعريف حالة الصفحة (State)
-class _LoadingPage2State extends State<LoadingPage2> {
+class _applicationDetailsState extends State<applicationDetails> {
   @override
   void initState() {
     super.initState();

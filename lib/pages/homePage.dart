@@ -1,7 +1,7 @@
 // استيراد مكتبة Flutter الأساسية
 import 'package:flutter/material.dart';
 import '../widgets/customCard.dart';
-import 'africa/africaContinent.dart';
+import 'africa/africaDetails.dart';
 
 // تعريف الصفحة الرئيسية HomePage كـ StatelessWidget لأنها لا تحتاج إلى حالة (State)
 class HomePage extends StatelessWidget {
@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black, // تعيين خلفية الصفحة باللون الأسود
       // محتوى الصفحة الرئيسية
       body: Column(
@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center, // توسيط العمود أفقيًا
         children: [
           // عنوان الصفحة
-          const Text(
+          Text(
             'Choose a Continent', // نص العنوان
             style: TextStyle(
               fontSize: 50, // حجم النص
@@ -42,21 +42,21 @@ class HomePage extends StatelessWidget {
                 children: [
                   customCard(
                       'Africa',
-                      'assets/img/continents/africaCountryMap.png',
+                      'assets/img/countries/africaCountryMap.png',
                       africaContinent()),
-                  customCard('Asia', 'assets/img/continents/asiaMapCountry.png',
+                  customCard('Asia', 'assets/img/countries/asiaMapCountry.png',
                       africaContinent()),
                   customCard(
                       'Australia',
-                      'assets/img/continents/australiaMapCountry.png',
+                      'assets/img/countries/australiaMapCountry.png',
                       africaContinent()),
                   customCard(
                       'Europe',
-                      'assets/img/continents/europeMapCountry.png',
+                      'assets/img/countries/europeMapCountry.png',
                       africaContinent()),
                   customCard(
                       'Antarctica',
-                      'assets/img/continents/antarcticaMapCountry.png',
+                      'assets/img/countries/antarcticaMapCountry.png',
                       africaContinent()),
                 ],
               ),
@@ -71,11 +71,11 @@ class HomePage extends StatelessWidget {
                 children: [
                   customCard(
                       'North America',
-                      'assets/img/continents/northAmericaMapCountry.png',
+                      'assets/img/countries/northAmericaMapCountry.png',
                       africaContinent()),
                   customCard(
                       'South America',
-                      'assets/img/continents/southAmericaMapCountry.png',
+                      'assets/img/countries/southAmericaMapCountry.png',
                       africaContinent()),
                 ],
               ),

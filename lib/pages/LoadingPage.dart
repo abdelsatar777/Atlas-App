@@ -1,6 +1,6 @@
 // استيراد الحزم المطلوبة من Flutter
 import 'package:flutter/material.dart';
-import 'LoadingPage2.dart'; // استيراد الصفحة الثانية التي سيتم الانتقال إليها
+import 'applicationDetails.dart'; // استيراد الصفحة الثانية التي سيتم الانتقال إليها
 
 // تعريف صفحة LoadingPage كـ StatefulWidget لتتمكن من استخدام الحالة (State)
 class LoadingPage extends StatefulWidget {
