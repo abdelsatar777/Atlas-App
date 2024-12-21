@@ -22,8 +22,8 @@ class AtlasApp extends StatelessWidget {
         fontFamily: 'Arial', // تعيين خط التطبيق إلى 'Arial'
       ),
 
-      // home: const HomePage(), // تحديد الصفحة الرئيسية للتطبيق
-      home: const LoadingPage(), // يمكن استخدام هذه الصفحة كبداية بدلاً من الصفحة الرئيسية
+      home: const HomePage(), // تحديد الصفحة الرئيسية للتطبيق
+      // home: const LoadingPage(), // يمكن استخدام هذه الصفحة كبداية بدلاً من الصفحة الرئيسية
     );
   }
 }
