@@ -8,6 +8,9 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: AppBar(
@@ -18,8 +21,8 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
         // بدون ظل
         leading: Image.asset(
           imagePath!,
-          width: 100,
-          height: 100,
+          width: screenWidth * 0.5,
+          height: screenHeight * 0.5,
         ),
         leadingWidth: 80,
         title: Text(
@@ -34,12 +37,26 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
         // النص على اليسار
         actions: [
           IconButton(
-            icon: Image.asset('assets/img/backButton.png'),
-            iconSize: 10,
+            icon: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.white, // إضافة حدود رمادية للدائرة
+                  width: 3, // سمك الحدود
+                ),
+              ),
+              child: const Icon(
+                Icons.arrow_back,
+                color: Colors.white, // تغيير لون الأيقونة إلى أسود للتمايز
+                size: 35,
+              ),
+            ),
             onPressed: () {
-              Navigator.pop(context); // العودة للصفحة السابقة
+              Navigator.pop(context);
             },
-          ),
+          )
         ],
       ),
     );

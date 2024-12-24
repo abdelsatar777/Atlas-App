@@ -17,6 +17,9 @@ class customCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Card(
       color: Colors.transparent, // جعل خلفية البطاقة شفافة
       elevation: 0, // إزالة الظل من البطاقة
@@ -27,8 +30,8 @@ class customCard extends StatelessWidget {
           // عرض الصورة داخل البطاقة
           Image.asset(
             imagePath, // مسار الصورة
-            width: 170, // عرض الصورة
-            height: 170, // ارتفاع الصورة
+            width: screenWidth * 0.20, // عرض الصورة
+            height: screenHeight * 0.20, // ارتفاع الصورة
           ),
           const SizedBox(height: 7), // إضافة مسافة بين الصورة والزر
           // زر يحتوي على نص يتم عرضه

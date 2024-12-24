@@ -9,80 +9,85 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black, // تعيين خلفية الصفحة باللون الأسود
-      // محتوى الصفحة الرئيسية
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // توسيط العمود عموديًا
-        crossAxisAlignment: CrossAxisAlignment.center, // توسيط العمود أفقيًا
-        children: [
-          // عنوان الصفحة
-          Text(
-            'Choose a Continent', // نص العنوان
-            style: TextStyle(
-              fontSize: 50, // حجم النص
-              fontWeight: FontWeight.bold, // وزن النص (عريض)
-              color: Colors.white, // لون النص
-              letterSpacing: 10, // مسافة بين الأحرف
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // العنوان الرئيسي
+            const Text(
+              'Choose a Continent',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                letterSpacing: 10,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center, // توسيط العمود عموديًا
-            crossAxisAlignment: CrossAxisAlignment.center,
-            // توسيط العمود أفقيًا
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                // توسيط العمود عموديًا
-                crossAxisAlignment: CrossAxisAlignment.center,
-                // توسيط العمود أفقيًا
-                children: [
-                  customCard(
-                      'Africa',
-                      'assets/img/countries/africaCountries.png',
-                      africaDetails()),
-                  customCard('Asia', 'assets/img/countries/asiaCountries.png',
-                      africaDetails()),
-                  customCard(
-                      'Australia',
-                      'assets/img/countries/australiaCountries.png',
-                      africaDetails()),
-                  customCard(
-                      'Europe',
-                      'assets/img/countries/europeCountries.png',
-                      africaDetails()),
-                  customCard(
-                      'Antarctica',
-                      'assets/img/countries/antarcticaCountries.png',
-                      africaDetails()),
-                ],
+            SizedBox(height: 50),
+            // الشبكة (GridView)
+            Expanded(
+              child: GridView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5, // عدد الأعمدة
+                ),
+                itemCount: continents.length,
+                // عدد البطاقات
+                itemBuilder: (context, index) {
+                  final continent = continents[index];
+                  return customCard(
+                    continent['title'],
+                    continent['imagePath'],
+                    continent['targetPage'],
+                  );
+                },
               ),
-              SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                // توسيط العمود عموديًا
-                crossAxisAlignment: CrossAxisAlignment.center,
-                // توسيط العمود أفقيًا
-                children: [
-                  customCard(
-                      'North America',
-                      'assets/img/countries/northAmericaCountries.png',
-                      africaDetails()),
-                  customCard(
-                      'South America',
-                      'assets/img/countries/southAmericaCountries.png',
-                      africaDetails()),
-                ],
-              ),
-            ],
-          )
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+// البيانات الخاصة بالقارات
+final List<Map<String, dynamic>> continents = [
+  {
+    'title': 'Africa',
+    'imagePath': 'assets/img/countries/africaCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'Asia',
+    'imagePath': 'assets/img/countries/asiaCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'Australia',
+    'imagePath': 'assets/img/countries/australiaCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'Europe',
+    'imagePath': 'assets/img/countries/europeCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'Antarctica',
+    'imagePath': 'assets/img/countries/antarcticaCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'North America',
+    'imagePath': 'assets/img/countries/northAmericaCountries.png',
+    'targetPage': africaDetails(),
+  },
+  {
+    'title': 'South America',
+    'imagePath': 'assets/img/countries/southAmericaCountries.png',
+    'targetPage': africaDetails(),
+  },
+];

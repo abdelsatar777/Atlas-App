@@ -23,13 +23,16 @@ class _LoadingPageState extends State<LoadingPage> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const applicationDetails()), // الانتقال إلى LoadingPage2
+                const applicationDetails()), // الانتقال إلى applicationDetails
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+
     return Scaffold(
       backgroundColor: Colors.black, // تعيين لون خلفية الصفحة بالأسود
       body: Center(
