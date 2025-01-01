@@ -2,18 +2,19 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/customAppBar.dart';
-import 'countries.dart';
+import 'responsiveCountriesGrid.dart';
 
+// صفحة الدول الإفريقية
 class africanCountries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: const customAppBar(
-            'African Countries', 'assets/img/continents/africaContinent.png'),
-        body: countries(),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: const customAppBar(
+          'African Countries', 'assets/img/continents/africaContinent.png'),
+      body: const Padding(
+        padding: EdgeInsets.all(10),
+        child: responsiveCountriesGrid(),
       ),
     );
   }

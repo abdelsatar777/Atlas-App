@@ -1,19 +1,12 @@
-// استيراد مكتبة Flutter الأساسية
+// customCard.dart
 import 'package:flutter/material.dart';
 
-// تعريف ويدجت مخصصة باسم custemCard
 class customCard extends StatelessWidget {
-  // تعريف المتغيرات (خصائص الويدجت)
-  final String title; // اسم القارة الذي سيظهر على الزر
-  final String imagePath; // مسار الصورة التي سيتم عرضها داخل البطاقة
-  final Widget targetPage; // الصفحة التي سيتم الانتقال إليها عند الضغط على الزر
+  final String title;
+  final String imagePath;
+  final Widget targetPage;
 
-  // المُنشئ الخاص بالويدجت مع معامل اختياري لكل خاصية
-  const customCard(
-    this.title, // عنوان البطاقة
-    this.imagePath, // مسار الصورة
-    this.targetPage, // الصفحة المستهدفة
-  );
+  const customCard(this.title, this.imagePath, this.targetPage);
 
   @override
   Widget build(BuildContext context) {
@@ -21,28 +14,23 @@ class customCard extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Card(
-      color: Colors.transparent, // جعل خلفية البطاقة شفافة
-      elevation: 0, // إزالة الظل من البطاقة
+      color: Colors.transparent,
+      elevation: 0,
       child: Column(
-        // mainAxisSize: MainAxisSize.min,
-        // استخدام الحد الأدنى من المساحة العمودية
         children: [
-          // عرض الصورة داخل البطاقة
           Image.asset(
-            imagePath, // مسار الصورة
-            width: screenWidth * 0.20, // عرض الصورة
-            height: screenHeight * 0.20, // ارتفاع الصورة
+            imagePath,
+            width: screenWidth * 0.20,
+            height: screenHeight * 0.20,
           ),
-          const SizedBox(height: 7), // إضافة مسافة بين الصورة والزر
-          // زر يحتوي على نص يتم عرضه
+          const SizedBox(height: 7),
           OutlinedButton(
             onPressed: () {
-              // عند الضغط على الزر، الانتقال إلى الصفحة المستهدفة
               Navigator.push(
-                context, // السياق الحالي
+                context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        targetPage), // بناء المسار للصفحة التالية
+                  builder: (context) => targetPage,
+                ),
               );
             },
             style: OutlinedButton.styleFrom(
@@ -56,7 +44,8 @@ class customCard extends StatelessWidget {
                 fontSize: 20,
                 color: Colors.white,
               ),
-            ), // النص المعروض على الزر
+              textScaler: MediaQuery.of(context).textScaler,
+            ),
           )
         ],
       ),

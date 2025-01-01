@@ -1,3 +1,4 @@
+// customAppBar.dart
 import 'package:flutter/material.dart';
 
 class customAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -16,9 +17,7 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
-        // خلفية سوداء
         elevation: 0,
-        // بدون ظل
         leading: Image.asset(
           imagePath!,
           width: screenWidth * 0.5,
@@ -28,13 +27,13 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: Text(
           title!,
           style: const TextStyle(
-            color: Colors.white, // لون النص أبيض
-            fontSize: 35, // حجم الخط
-            fontWeight: FontWeight.bold, // خط عريض
+            color: Colors.white,
+            fontSize: 35,
+            fontWeight: FontWeight.bold,
           ),
+          textScaler: MediaQuery.of(context).textScaler,
         ),
         centerTitle: false,
-        // النص على اليسار
         actions: [
           IconButton(
             icon: Container(
@@ -43,13 +42,13 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Colors.white, // إضافة حدود رمادية للدائرة
-                  width: 3, // سمك الحدود
+                  color: Colors.white,
+                  width: 3,
                 ),
               ),
               child: const Icon(
                 Icons.arrow_back,
-                color: Colors.white, // تغيير لون الأيقونة إلى أسود للتمايز
+                color: Colors.white,
                 size: 35,
               ),
             ),
@@ -63,6 +62,5 @@ class customAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   Size get preferredSize => const Size.fromHeight(80);
 }
